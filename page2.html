@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Little Lemon Receipt Maker</title>
+</head>
+<body>
+  <h1 onclick="calculatePrices()">Little Lemon Receipt</h1>
+
+  <script>
+    // Sample data provided as an array of objects
+    const dishes = [
+      { name: 'Italian pasta', price: 9.55 },
+      { name: 'Rice with veggies', price: 8.65 },
+      { name: 'Chicken with potatoes', price: 15.55 },
+      { name: 'Vegetarian Pizza', price: 6.45 }
+    ];
+
+    // Function to calculate prices with or without tax based on the argument passed
+    function calculatePrices(withTax) {
+      console.log(withTax ? "Prices with 20% tax:" : "Prices without tax:");
+
+      for (const dish of dishes) {
+        const taxRate = 0.2; // 20% tax rate
+        const tax = withTax ? dish.price * taxRate : 0;
+        const totalPrice = dish.price + tax;
+
+        console.log(`Dish: ${dish.name} Price (incl.tax): $ ${totalPrice.toFixed(2)}`);
+      }
+    }
+
+    // Test the function
+    calculatePrices(true); // Output prices with tax
+    console.log('\n');
+    calculatePrices(false); // Output prices without tax
+  </script>
+</body>
+</html>
